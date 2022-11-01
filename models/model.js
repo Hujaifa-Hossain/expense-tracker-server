@@ -7,6 +7,15 @@ const categories_model = new Schema({
   color: { type: String, default: "#FCBE44" },
 });
 
-const categories = mongoose.model("categories", categories_model);
+const transaction_model = new Schema({
+  name: {type: String, default: 'Anonymous'},
+  type: {type: String, default: 'Investment'},
+  date: {type: Date, default: Date.now},
+  amount: {type: Number},
+})
 
-module.exports = { categories };
+const categories = mongoose.model("categories", categories_model);
+const transaction = mongoose.model('transaction', transaction_model);
+
+exports.default = transaction
+module.exports = { categories, transaction };
