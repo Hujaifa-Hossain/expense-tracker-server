@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const categories_model = new Schema({
-  name: { type: String, default: "Investment" },
+  type: { type: String, default: "Investment" },
   color: { type: String, default: "#FCBE44" },
 });
 

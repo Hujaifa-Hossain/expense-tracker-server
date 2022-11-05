@@ -14,16 +14,18 @@ const connection = require("./database/connection");
 
 connection
   .then((db) => {
-    if (!db) return process.exit[1];
-    
+    if (!db) return process.exit(1);
+
+    // listen to the http server
     app.listen(PORT, () => {
-      console.log(`Server is running on ort: http://localhost:${PORT}`);
+      console.log(`Server is running on port: http://localhost:${PORT}`);
     });
 
     app.on("error", (err) =>
-      console.log(`Failed to connect with HTTP server : ${err}`)
+      console.log(`Failed To Connect with HTTP Server : ${err}`)
     );
+    // error in mondb connection
   })
   .catch((error) => {
-    console.log(`Connection Failed ${error}`);
+    console.log(`Connection Failed...! ${error}`);
   });
